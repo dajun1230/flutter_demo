@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/my_home_page.dart';
+import 'package:flutter_demo/test_page.dart';
+// import 'package:flutter_demo/routes/other/login_page.dart';
+// import 'package:flutter_demo/routes/my_home_page.dart';
+import 'package:flutter_demo/routes/other/register_page.dart';
+import 'package:flutter_demo/states/provider/company_list_provider.dart';
+import 'package:provider/provider.dart';
+// import 'package:flutter_demo/routes/other/welcome.dart';
 
 void main() {
-  return runApp(MyApp());
+  return runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CompanyListProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +28,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: TestPage(),
+      // home: WelcomePage(),
+      // home: LoginPage(),
+      // home: MyHomePage(),
+      // initialRoute: LoginPage(),
+      routes: <String, WidgetBuilder>{
+        '/register': (BuildContext context) {
+          return RegisterPage();
+        }
+      },
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/routes/home/list_view/list_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,9 +10,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("首页"),
       ),
-      body: Center(
-        child: Text("首页页面"),
-      ),
+      body: ListPage(),
     );
   }
 }
